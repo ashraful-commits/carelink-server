@@ -30,7 +30,7 @@ app.use(cookiesParser())
 app.use("/api/v1/auth", privetRouter);
 app.use(errorHandler);
 //================================================> create server
-app.listen(port, () => {
-  MongoDBCnncetion();
+app.listen(port, async() => {
+await  MongoDBCnncetion();
   console.log(`Server running on port ${port}`.bgCyan.yellow);
 });
