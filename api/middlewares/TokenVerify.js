@@ -4,7 +4,7 @@ import UserModel from "../model/UserModel.js";
 
 export const tokenVerify = (req, res, next) => {
   // const token = req.headers.authorization || req.headers.Authorization;
-const accessToken = req.cookies.accessToken
+  const accessToken = req?.cookies?.accessToken || req?.headers?.authorization;
 
   if (!accessToken) {
    return res.status(404).json({ message: "not authorize" });

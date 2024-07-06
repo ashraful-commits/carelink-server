@@ -239,9 +239,15 @@ export const userLogin = asyncHandler(async (req, res) => {
       secure: process.env.APP_ENV !== 'development'?false:true,
       sameSite: 'Lax',
       maxAge: 1000 * 60 * 60 * 24 * 7,
+    }).status(200)
+    .json({
+      token: token,
+      refToken: refToken,
+      message: "Entered into dashboard!",
+      seller: IsExistSeller,
     });
 
-    res.status(200).json({ message: "Login Successful!", token, refToken });
+
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
